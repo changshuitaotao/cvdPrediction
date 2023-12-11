@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 
 
-with open('./xgb_plan1.dat', 'rb') as f:
+with open('xgb_plan1.dat', 'rb') as f:
     model = pickle.load(f)
 
 st.title('Wine Quality Classifier Web App')
@@ -73,5 +73,4 @@ st.table(pd.DataFrame([{
 
 if st.button('Predict'):
     prediction = model.predict_proba(features)[:,1]
-    print(type(prediction))
     st.write(' Based on feature values, your risk score is : '+ str(int(prediction * 100)))
